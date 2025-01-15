@@ -12,9 +12,9 @@ public class Numbers {
         byte x_byte = -127, y_byte = 127;
         System.out.println("Byte: "+x_byte+","+y_byte);
     // Representation of binary, octal and hexadecimal numbers
-        System.out.println("Binary: "+0b10000);// '0b' prefix
-        System.out.println("Octal: "+020);// '0' prefix
-        System.out.println("Hexadecimal: "+0x10);// '0x' prefix
+        System.out.println("Binary(0b10000): "+0b10000);// '0b' prefix
+        System.out.println("Octal(020): "+020);// '0' prefix
+        System.out.println("Hexadecimal(0x10): "+0x10);// '0x' prefix
 
     // 2 types of floats- float(4B) and Double(8B)
         // float f = 19.10f; 'f' suffix for float
