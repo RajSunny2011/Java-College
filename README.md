@@ -1,2 +1,2 @@
 ## Table of content
-1. [Collections](./notes/collection.md)
+1. [Collections](./notes/Collections.md)
