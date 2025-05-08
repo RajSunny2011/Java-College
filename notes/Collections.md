@@ -1,37 +1,40 @@
 # Collections
-Collections in Java are a framework that provides an architecture to store and manipulate a group of objects.
+
+Collections in Java are a framework that provides an architecture to store and manipulate a group of objects.
 ![Diagram](../images/CollectionHeirarchy.png)
 
 ## Collection Methods
-| Method                          | Description                                                                        |
-|---------------------------------|------------------------------------------------------------------------------------|
-| `add(E e)`                      | Adds the specified element to the collection.                                      |
-| `addAll(Collection<? extends E> c)` | Adds all elements from another collection to this collection.                     |
-| `remove(Object o)`              | Removes the first occurrence of the specified element from the collection.         |
-| `contains(Object o)`            | Returns `true` if the collection contains the specified element.                   |
-| `size()`                        | Returns the number of elements in the collection.                                  |
-| `isEmpty()`                     | Returns `true` if the collection is empty.                                         |
-| `clear()`                       | Removes all elements from the collection.                                          |
-| `iterator()`                    | Returns an iterator for iterating over the collection.                             |
-| `toArray()`                     | Returns an array containing all elements in the collection.                        |
-| `forEach(Consumer<? super E> action)` | Performs the given action for each element in the collection.                     |
 
+| Method                                    | Description                                                                      |
+|-------------------------------------------|----------------------------------------------------------------------------------|
+| `add(E e)`                                | Adds the specified element to the collection.                                    |
+| `addAll(Collection<? extends E> c)`       | Adds all elements from another collection to this collection.                   |
+| `remove(Object o)`                        | Removes the first occurrence of the specified element from the collection.       |
+| `contains(Object o)`                      | Returns `true` if the collection contains the specified element.                 |
+| `size()`                                  | Returns the number of elements in the collection.                                |
+| `isEmpty()`                               | Returns `true` if the collection is empty.                                       |
+| `clear()`                                 | Removes all elements from the collection.                                        |
+| `iterator()`                              | Returns an iterator for iterating over the collection.                           |
+| `toArray()`                               | Returns an array containing all elements in the collection.                      |
+| `forEach(Consumer<? super E> action)`     | Performs the given action for each element in the collection.                    |
 
-#### Iterable vs Iterator
+### Iterable vs Iterator
 
-| Iterable (java.lang.iterable) | Iterator (java.util.Iterator) |
-|--|--|
-| Represents a collection that can be iterated  | Used to iterator over elements in a collection |
-| Methods: `Iterator<T> iterator()` | Methods: `boolean hasNext()`, `T next()`, and `void remove()`  |
-| For-each loops          | Manual iteration `while (X.hasNext())` |
-| eg. ArrayList, HashSet | created from iterable using .iterator()
+| **Iterable** (java.lang.Iterable)        | **Iterator** (java.util.Iterator)                |
+|------------------------------------------|--------------------------------------------------|
+| Represents a collection that can be iterated. | Used to iterate over elements in a collection.    |
+| Methods: `Iterator<T> iterator()`         | Methods: `boolean hasNext()`, `T next()`, `void remove()` |
+| Supports for-each loops.                | Manual iteration: `while (X.hasNext())`.           |
+| Example: ArrayList, HashSet             | Created from Iterable using `.iterator()`.        |
 
 # Lists
-List interface is an ordered collection that stores and accesses elements sequentially. 
+
+The `List` interface is an ordered collection that stores and accesses elements sequentially. 
 
 ## List Methods
+
 | Method                                | Description                                                                                                       |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | `get(int index)`                      | Returns the element at the specified position in the list.                                                        |
 | `set(int index, E element)`           | Replaces the element at the specified position in the list with the specified element.                            |
 | `add(int index, E element)`           | Inserts the specified element at the specified position in the list.                                              |
@@ -46,9 +49,20 @@ List interface is an ordered collection that stores and accesses elements seque
 ## Types of Lists
 
 | Feature        | `ArrayList`                    | `LinkedList`                    | `Vector`                       | `Stack`                        |
-|------------------------------|--------------------------------|---------------------------------|--------------------------------|--------------------------------|
+|----------------|---------------------------------|---------------------------------|--------------------------------|--------------------------------|
 | **Data Structure** | Dynamic Array                  | Doubly Linked List              | Dynamic Array                  | Extends `Vector`, uses Array   |
-| **Access**      | O(1) for get      | O(n) for get       | O(1) for get      | O(1) for get      |
+| **Access**      | O(1) for get                    | O(n) for get                    | O(1) for get                   | O(1) for get                   |
 | **Insert/Delete** | O(n) for random insert/delete  | O(1) for insert/delete at ends  | O(n) for random insert/delete  | O(n) for random insert/delete  |
-| **Thread-Safety**             | Not synchronized               | Not synchronized                | Synchronized                   | Synchronized                   |
-| **Use Case**                  | Best for frequent access      | Best for frequent insert/delete at ends | Best when thread-safety needed | Extends `Vector`, used as LIFO (Last In First Out) |
+| **Thread-Safety** | Not synchronized               | Not synchronized                | Synchronized                   | Synchronized                   |
+| **Use Case**      | Best for frequent access      | Best for frequent insert/delete at ends | Best when thread-safety needed | Extends `Vector`, used as LIFO (Last In First Out) |
+
+### Methods to Traverse Lists
+
+| Traversal Method              | Example Code                                                                 |
+|-------------------------------|-------------------------------------------------------------------------------|
+| `forEach`                      | `list.forEach(System.out::println);`                                          |
+| Loop with Index                | `for (int i = 0; i < list.size(); i++) { System.out.println(list.get(i)); }` |
+| `Iterator`                     | `Iterator<String> iterator = list.iterator(); while (iterator.hasNext()) { System.out.println(iterator.next()); }` |
+| `ListIterator` (works in both directions) | `ListIterator<String> listIterator = list.listIterator(); while (listIterator.hasNext()) { System.out.println(listIterator.next()); }` |
+| `forEach + Lambda`             | `list.forEach(element -> System.out.println(element));`                        |
+| `Stream`                       | `list.stream().forEach(System.out::println);`                                  |
