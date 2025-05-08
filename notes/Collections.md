@@ -27,6 +27,8 @@ Collections in Java are a framework that provides an architecture to store and m
 | Supports for-each loops.                | Manual iteration: `while (X.hasNext())`.           |
 | Example: ArrayList, HashSet             | Created from Iterable using `.iterator()`.        |
 
+---
+
 # Lists
 
 The `List` interface is an ordered collection that stores and accesses elements sequentially. 
@@ -66,3 +68,71 @@ The `List` interface is an ordered collection that stores and accesses elements 
 | `ListIterator` (works in both directions) | `ListIterator<String> listIterator = list.listIterator(); while (listIterator.hasNext()) { System.out.println(listIterator.next()); }` |
 | `forEach + Lambda`             | `list.forEach(element -> System.out.println(element));`                        |
 | `Stream`                       | `list.stream().forEach(System.out::println);`                                  |
+
+---
+
+## Set Interface
+
+`Set` interface represents a collection fo unique elements. It generally is unordered and is fast for searching elements.
+
+
+### Common Methods in Set
+
+| Method                              | Description                                                                                                      |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `add(E e)`                          | Adds the specified element to the set if it is not already present.                                              |
+| `remove(Object o)`                  | Removes the specified element from the set.                                                                       |
+| `contains(Object o)`                | Returns `true` if the set contains the specified element.                                                        |
+| `size()`                            | Returns the number of elements in the set.                                                                        |
+| `isEmpty()`                         | Returns `true` if the set is empty.                                                                               |
+| `clear()`                           | Removes all elements from the set.                                                                                |
+| `iterator()`                        | Returns an iterator over the elements in the set.                                                                |
+| `addAll(Collection<? extends E> c)` | Adds all elements from the specified collection to the set.                                                      |
+| `retainAll(Collection<?> c)`        | Retains only the elements in the set that are also contained in the specified collection.                        |
+
+### Implementations of Set
+
+- **HashSet**:
+  - Implements the `Set` interface.
+  - Does not guarantee any order of elements.
+  - Provides constant-time performance for basic operations like add, remove, and contains (on average).
+
+- **LinkedHashSet**:
+  - Extends `HashSet` and implements the `Set` interface.
+  - Maintains the insertion order of elements
+  - Slightly slower than `HashSet` due to the extra overhead of maintaining the insertion order.
+
+- **SortedSet** (interface):
+    - Extends the `Set` interface 
+    - Stores in natural order of the elements (if they implement Comparable) or a custom order defined by a Comparator
+
+- **TreeSet**:
+  - Implements the `SortedSet` interface.
+  - Stores elements in a sorted order according to their natural ordering or a custom comparator.
+  - Provides logarithmic time cost for the basic operations (`add`, `remove`, `contains`).
+
+---
+
+## Queue and Deque Interfaces
+
+The `Queue` interface represents a collection designed for holding elements prior to processing. The `Deque` (double-ended queue) extends `Queue` and allows elements to be added or removed from both ends of the queue. 
+
+---
+
+## Common Methods
+
+Here’s a list of some common methods that apply across multiple collection types:
+
+| Method                                  | Description                                                                                                      |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `add(E e)`                              | Adds the specified element to the collection (works for `List`, `Set`, `Queue`).                                |
+| `remove(Object o)`                      | Removes the first occurrence of the specified element from the collection.                                       |
+| `contains(Object o)`                    | Returns `true` if the collection contains the specified element.                                                 |
+| `size()`                                | Returns the number of elements in the collection.                                                                |
+| `isEmpty()`                             | Returns `true` if the collection is empty.                                                                       |
+| `clear()`                               | Removes all elements from the collection.                                                                        |
+| `forEach(Consumer<? super E> action)`   | Performs the given action for each element in the collection.                                                    |
+
+---
+
+For more details: [Java Collections Framework](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/).
