@@ -10,6 +10,18 @@ Exception handling in Java is a powerful mechanism that allows developers to man
 
 An **exception** is an event that disrupts the normal flow of the program during execution. It is an object which is thrown at runtime.
 
+| **Method**                                | **Description**                                                               |
+| ----------------------------------------------- | ----------------------------------------------------------------------------- |
+| `getMessage()`                                  | Returns a detailed message about the exception.                               |
+| `getLocalizedMessage()`                         | Returns a localized description of the exception (can be overridden).         |
+| `getCause()`                                    | Returns the cause of the exception (another `Throwable` object).              |
+| `initCause(Throwable cause)`                    | Initializes the cause of the exception (usually set in the constructor).      |
+| `printStackTrace()`                             | Prints the stack trace of the exception to the standard error stream.         |
+| `setStackTrace(StackTraceElement[] stackTrace)` | Sets the stack trace of the exception.                                        |
+| `fillInStackTrace()`                            | Fills in the stack trace of the `Throwable` object (invoked automatically).   |
+| `toString()`                                    | Returns a short description of the `Throwable` object (including class name). |
+| `getStackTrace()`                               | Returns an array of `StackTraceElement` objects representing the stack trace. |
+
 ---
 
 ## Types of Exceptions
